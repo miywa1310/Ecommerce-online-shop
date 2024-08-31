@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+ul, li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.container{
+  @apply md:w-[85%] mx-auto max-w-[1400px] w-[90%] 
+}
+.btn{
+  @apply px-[50px] py-[10px] rounded-md active:scale-95
+}
+
+.active{
+  @apply border-b-2 border-[#000000] text-[#000000]
+}
+.cartDiv:last-child{
+  @apply border-none
+}

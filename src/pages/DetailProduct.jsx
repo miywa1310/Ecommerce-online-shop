@@ -78,14 +78,14 @@ const DetailProduct = () => {
 
                                 {
                                     selectDetailProduct?.images.map((item, index) => (
-                                        <div key={index} onClick={() => selectImage(item)} className="max-w-[80px] h-[103px] cursor-pointer group">
-                                            <img className='rounded-md object-cover group-hover:scale-95' src={item} alt="" />
+                                        <div key={index} onClick={() => selectImage(item)} className=" cursor-pointer group">
+                                            <img className='rounded-md object-contain group-hover:scale-95 max-w-[80px] h-[103px]' src={item} alt="" />
                                         </div>
                                     ))
                                 }
                             </div>
                             <div className="">
-                                <img className='rounded-md h-[516px]' src={image} alt="" />
+                                <img className='rounded-md h-[516px] w-[500px] object-contain' src={image} alt="" />
                             </div>
                         </div>
                         <div className="flex-1 flex flex-col gap-[20px]">

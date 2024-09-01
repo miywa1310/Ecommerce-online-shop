@@ -14,7 +14,7 @@ const BrowseCategory = () => {
     const { products } = useSelector(state => state.products)
     const { categories, isCategoriesLoad } = useSelector(state => state.categories)
     function setSelectingFunc(category) {
-        const selectingProduct = products.filter(item => item.categoryId === category.id)
+        const selectingProduct = products.filter(item => item.categoryId == category.id)
         dispatch(setSeletedProduct(selectingProduct))
     }
 
@@ -86,8 +86,7 @@ const BrowseCategory = () => {
                     {
                         isCategoriesLoad ?
                             [1, 2, 3, 4, 5, 6].map(item => (
-                                <div className="animate-pulse w-[160px] flex flex-col items-center justify-center  p-[10px] mt-[30px] border-[1px] rounded-md bg-[#F9F9F7] ">
-                                    <div className="h-[50px] w-full mb-[10px] bg-gray-200 rounded-md flex justify-center items-center text-[24px] text-gray-300 animate-pulse"><CgImage /></div>
+                                <div key={item} className="animate-pulse h-[120px] w-[160px] flex flex-col items-center justify-center  p-[10px] mt-[30px] border-[1px] rounded-md bg-[#F9F9F7] ">
                                     <div className="flex flex-col gap-[5px] w-full">
                                         <div className="w-[90%] animate-pulse bg-gray-200 h-[12px] rounded-lg z-[10]"></div>
                                         <div className="w-[90%] animate-pulse bg-gray-200 h-[12px] rounded-lg z-[10]"></div>
@@ -97,12 +96,9 @@ const BrowseCategory = () => {
                             <Slider {...settings}>
                                 {
                                     categories.map(item => (
-                                        <Link key={item.id} to={"/products"} onClick={() => setSelectingFunc(item)}>
-                                            <div  key={item.id} className="max-w-[160px] min-w-[120px] cursor-pointer active:scale-95 hover:bg-gray-300 rounded-md bg-[#EDEDED] ">
+                                        <Link key   ={item.id} to={"/products"} onClick={() => setSelectingFunc(item)}>
+                                            <div  key={item.id} className="max-w-[160px] min-w-[120px] cursor-pointer active:scale-95 hover:bg-gray-200 rounded-md bg-gray-100 ">
                                                 <div className="h-[120px] flex-col flex items-center justify-center">
-                                                    <div className="">
-                                                        <img className="max-w-[20px]" src={item.icon} alt="" />
-                                                    </div>
                                                     <div className="">
                                                         <p>{item.title}</p>
                                                     </div>

@@ -16,13 +16,17 @@ const Header = () => {
   const { categories } = useSelector(state => state.categories)
 
   const [hideMenu, setHideMenu] = useState(false)
-  console.log(hideMenu);
 
 
   function setSelectingFunc(category) {
-    const selectingProduct = products.filter(item => item.categoryId === category.id)
+    
+    const selectingProduct = products.filter(item => item.categoryId == category.id)
     dispatch(setSeletedProduct(selectingProduct))
+    console.log(selectingProduct);
+    
   }
+  
+  
   const { pathname } = useLocation()
 
   return (
@@ -85,7 +89,6 @@ const Header = () => {
                 categories.map(item => (
                   <li onClick={() => setSelectingFunc(item)} key={item.id} className=" w-full flex  items-center justify-center">
                     <div className="py-[3px] px-[10px] flex gap-[10px] rounded-md cursor-pointer hover:bg-gray-700 max-w-max">
-                      <img className="max-w-[20px]" src={item.icon} alt="" />
                       <p>{item.title}</p>
                     </div>
                   </li>

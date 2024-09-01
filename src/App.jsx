@@ -6,6 +6,7 @@ import Cart from './pages/Cart'
 import Products from './pages/Products'
 import Favourite from './pages/Favourite'
 import DetailProduct from './pages/DetailProduct'
+import NotFoundPage from './components/Page-comp/NotFoundPage'
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
         <Route path='/products' element={<Products />} />
         <Route path='/favourite' element={<Favourite />} />
         <Route path='/products/:slug' element={<DetailProduct/>} />
-
+        <Route path='*' element={<NotFoundPage/>}/>
       </Route>
     )
   )

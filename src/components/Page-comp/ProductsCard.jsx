@@ -48,13 +48,13 @@ const ProductsCard = ({ item }) => {
     const rateStar = checkItemRate(item?.rating)
 
     return (
-        <div className='bg-[#0000000f] h-full py-[20px] rounded-md flex flex-col justify-between items-center gap-[10px] sm:w-full '>
+        <div className='border shadow-md h-full py-[20px] rounded-md flex flex-col justify-between items-center gap-[10px] sm:w-full '>
             <div onClick={() => addToFavourite(item)} className="cursor-pointer px-[20px] w-full flex justify-end items-end text-[25px] text-[#919191C4]">
                 {
                     favourite.find(favItem => favItem.id === item.id) ? <BsHeartFill className="text-red-500" /> : <BsHeart />
                 }
             </div>
-            <img className="h-[175px] w-[150px] object-cover" src={item.images[0]} alt="" />
+            <img className="h-[175px] w-[150px] object-contain" src={item.images[0]} alt="" />
             <div className=" w-full flex justify-center flex-col items-center">
                 <p className="px-[20px] text-[20px] font-medium">{NameFunction(item.name)}</p>
                 <div className="flex justify-center items-end  gap-1">

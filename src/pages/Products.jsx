@@ -19,10 +19,12 @@ const Products = () => {
     selectCont.current.classList.toggle("hidden")
   }
   function setSelectingFunc(category) {
-    const selectingProduct = products.filter(item => item.categoryId === category.id)
+    const selectingProduct = products.filter(item => item.categoryId == category.id)
     dispatch(setSeletedProduct(selectingProduct))
     selectCont.current.classList.add("hidden")
   }
+  console.log(selectedProducts);
+  
 
   return (
     <div className="mb-[30px]">

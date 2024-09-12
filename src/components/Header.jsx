@@ -10,27 +10,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSeletedProduct } from "../store/slices/productsSlice";
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const { products, favourite } = useSelector(state => state.products)
+  const { favourite } = useSelector(state => state.products)
   const { cart } = useSelector(state => state.cart)
-  const { categories } = useSelector(state => state.categories)
 
   const [hideMenu, setHideMenu] = useState(false)
-
-
-  function setSelectingFunc(category) {
-    
-    const selectingProduct = products.filter(item => item.categoryId == category.id)
-    dispatch(setSeletedProduct(selectingProduct))
-    console.log(selectingProduct);
-    
-  }
-  
-  
   const { pathname } = useLocation()
 
   return (
-    <div className=''>
       <header className="h-[80px] flex items-center bg-white">
         <div className="container">
           <div className="flex items-center justify-between gap-[20px]">
@@ -81,25 +67,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <div className="h-[50px] hidden md:flex bg-[#2E2E2E] items-center">
-        <div className="container">
-          <div className="flex items-center gap-[20px]">
-            <ul className="text-[#989898] divide-x text-[18px] flex items-center justify-between w-full ">
-              {
-                categories.map(item => (
-                  <li onClick={() => setSelectingFunc(item)} key={item.id} className=" w-full flex  items-center justify-center">
-                    <div className="py-[3px] px-[10px] flex gap-[10px] rounded-md cursor-pointer hover:bg-gray-700 max-w-max">
-                      <p>{item.title}</p>
-                    </div>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
-      </div>
 
-    </div>
   )
 }
 

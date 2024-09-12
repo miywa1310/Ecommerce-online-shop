@@ -7,7 +7,7 @@ import logoWhite from '../images/logoWhite.svg'
 
 const Footer = () => {
   return (
-    <div className='bg-[#000000] py-[100px]'>
+    <footer className='bg-[#000000] py-[100px]'>
       <div className="container ">
         <div className="flex flex-wrap gap-[30px] justify-between items-start">
           <div className="flex flex-col gap-[20px]">
@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

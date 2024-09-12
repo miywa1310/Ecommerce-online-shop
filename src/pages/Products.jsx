@@ -1,5 +1,5 @@
 import { AiOutlineRight } from "react-icons/ai";
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import ProductsCard from "../components/Page-comp/ProductsCard";
 import ProCardSkleton from "../components/Page-comp/ProCardSkleton";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,10 +10,9 @@ import { setSeletedProduct } from "../store/slices/productsSlice";
 
 const Products = () => {
   const { products, isProductsLoad, selectedProducts, selectedType, cart, favourite } = useSelector(state => state.products)
-  const { categories, isCategoriesLoad, isCategoriesError } = useSelector(state => state.categories)
+  const { categories } = useSelector(state => state.categories)
   const dispatch = useDispatch()
   const category = categories.find(item => item.id == Object.values(selectedProducts)[0]?.categoryId)
-  console.log(category);
   const selectCont = useRef()
   function ShowContent() {
     selectCont.current.classList.toggle("hidden")
@@ -23,11 +22,26 @@ const Products = () => {
     dispatch(setSeletedProduct(selectingProduct))
     selectCont.current.classList.add("hidden")
   }
-  console.log(selectedProducts);
-  
 
   return (
     <div className="mb-[30px]">
+      <div className="h-[50px] hidden md:flex bg-[#2E2E2E] items-center">
+        <div className="container">
+          <div className="flex items-center gap-[20px]">
+            <ul className="text-[#989898] divide-x text-[18px] flex items-center justify-between w-full ">
+              {
+                categories.map(item => (
+                  <li onClick={() => setSelectingFunc(item)} key={item.id} className=" w-full flex  items-center justify-center">
+                    <div className="py-[3px] px-[10px] flex gap-[10px] rounded-md cursor-pointer hover:bg-gray-700 max-w-max">
+                      <p>{item.title}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <div className="py-[40px]">
           <ul className='flex gap-[20px] items-center text-[18px] text-[#A4A4A4]'>
